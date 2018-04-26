@@ -91,7 +91,7 @@ by obtained relative vector.
 The wheelAngle is obtained by multiplying the resultant with the maxSteerAngle.maxSteerAngle describes 
 the max rotation of the wheels or how smooth the wheels can make a turn. 
 
-\steer angle in case of obstacle. 
+Steer angle in case of obstacle. 
 
 
 
@@ -109,7 +109,7 @@ The wheel colliders for all the wheels of the car is set to turn the wheel in ri
 depending on where the next way-point is so the car is already pointing to next node. 
 In this step, it needs some power to through the path. So a maxMotorTorque is defined to define power to the car. 
 
-\Speed 
+Speed 
 
 
 
