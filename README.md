@@ -36,6 +36,9 @@ Steps :
 There is a video  to demonstrate the simulation. 
 
 The  jupiter.cs script functions:
+
+
+
 sensors:
 
 Creation of sensors to detect the obstacles defined as colliders. Sensors are set along the transform. position as origin , 
@@ -51,7 +54,12 @@ It casts a ray from the origin point, in the defined position of the sensor whic
 along the z axis. Out hit to check if the sensors sense some obstacle so that we can know the position
 and point of the contact of sensor with the obstacle. 
 
+
+
 Controls()
+
+
+
 All the calculations of the car is been done here. 
 
 A trajectory is defined so that the car can be driven from initial position to the goal position. 
@@ -63,10 +71,10 @@ point which is been described by the path ?
 
 We have to calculate the way-point relative to the car, This can be done by using unity function 
 
-Tranform.InverseTransformPoint(Vector3);
+     Tranform.InverseTransformPoint(Vector3);
 
 
-carTransform.InverseTransformPoint(waypoint position);
+     carTransform.InverseTransformPoint(waypoint position);
 
 
 When two position vectors are given as input, it outputs a relative vector. 
@@ -75,21 +83,24 @@ if its a negative X value then it will be the left direction of the car. If it i
 Certain angle is required for the wheels to get to the position. To do this, divide the relative the relative vector's X 
 by obtained relative vector. 
 
-Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
+     Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
 
-newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
+     newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
 
 
 The wheelAngle is obtained by multiplying the resultant with the maxSteerAngle.maxSteerAngle describes 
 the max rotation of the wheels or how smooth the wheels can make a turn. 
 
 \steer angle in case of obstacle. 
+
+
+
 If the physics ray cast has returned true then avoidMultiplier  which is the new steer angle to 
 avoid the obstacle is calculated. If the obstacle is towards the right sensor, then the car would turn left.
 If the obstacle is towards the left sensor, then the car would turn right.The avoidmultiplier will be in negative 
 if the obstacle detected in right and avoidmultiplier will be positive if the obstacle detected in left.
 
- wheelF L.steerAngle =maxSteerAngle * avoidmultiplier.   
+     wheelF L.steerAngle =maxSteerAngle * avoidmultiplier.   
 
 
 If there is no obstacle found then the newSteer would be same as before. 
@@ -100,6 +111,9 @@ In this step, it needs some power to through the path. So a maxMotorTorque is de
 
 \Speed 
 
+
+
+
 The distance between the nodes of the path is calculated, if the next node is close by then go towards
 the next node.This is done by increment  the current node and and accelerating till we reach the last node.
 
@@ -107,10 +121,13 @@ Acceleration is given based on the current speed, if the current speed is less
 than the maximum speed then acceleration is increased till it reaches the maximum speed and the last node of the path. 
  The current speed is calculated by
 
-   currentSpeed = 2∗MathF.PI∗wheelFL.radius∗wheelFL.rpm∗60/1000; 
+      currentSpeed = 2∗MathF.PI∗wheelFL.radius∗wheelFL.rpm∗60/1000; 
 
 
 Actuation()
+
+
+
 All the calculations for the controls are used to apply the steer and drive to 
 the car to drive the car avoiding obstacles and reaching destination. 
 
