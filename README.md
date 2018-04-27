@@ -132,8 +132,7 @@ All the calculations for the controls are used to apply the steer and drive to
 the car to drive the car avoiding obstacles and reaching destination. 
 
 
-
-
+Some of the concepts are been inspired by CarAI series by Eyeimaginary 
 
 
 
